@@ -8,6 +8,10 @@
 //
 "use strict"
 
+const screenWidth = 800; // Width of one screen
+const totalWidth = screenWidth * 3; // Total width of the game world
+const screenHeight = 600; // Height of the screen
+
 // game config
 let config = {
     parent: 'phaser-game',
@@ -20,16 +24,17 @@ let config = {
         arcade: {
           debug: false
         }
-      },
-    width: 960,
-    height: 640,
-    scene: [Boot, Menu, Controls, Credits, Play, Gameover]
+    },
+    width: screenWidth,
+    height: screenHeight,
+    scene: [Boot, Menu, Controls, Play, Credits, Gameover]
 }
 
 // Global variable to hold sprites
 var my = {sprite: {}};
 let score = 0;
 let gameover = false;
+const SCALE = 2.0;
 
 const game = new Phaser.Game(config);
 
