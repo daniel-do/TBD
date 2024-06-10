@@ -6,6 +6,7 @@ class Controls extends Phaser.Scene {
     preload() {
 
     }
+    //existed before
     init() {
         this.TILESIZE = 16;
         this.SCALE = 2.0;
@@ -34,6 +35,8 @@ class Controls extends Phaser.Scene {
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
+
+        //CODE CUTOFF IF NEED TO REMOVE
         //need to input tiled assets where the quotations are
         this.map = this.add.tilemap("", this.TILESIZE, this.TILESIZE, this.TILEHEIGHT, this.TILEWIDTH);
         //here as well
@@ -75,6 +78,7 @@ class Controls extends Phaser.Scene {
                 this.resetCost(this.tileset);
                 this.lowCost = false;
             }
+            //existed before
         if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
             this.scene.start("creditsScene");
         }
