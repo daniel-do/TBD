@@ -8,7 +8,6 @@ class Menu extends Phaser.Scene {
     }
 
     create() {
-        // menu text configuration
         let menuConfig = {
             fontFamily: 'Arial',
             fontSize: '32px',
@@ -21,12 +20,10 @@ class Menu extends Phaser.Scene {
             fixedWidth: 0
         }
 
-        // show menu text
-        this.add.text(game.config.width / 2, (game.config.height * 1) / 4, 'TBD', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width / 2, (game.config.height * 1) / 4, 'Welcome to TB DUNGEON ', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width / 2, (game.config.height * 2) / 4, 'Menu', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width / 2, (game.config.height * 3) / 4, 'Press SPACE to click through scenes', menuConfig).setOrigin(0.5);
 
-        // define keys
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }
 
@@ -34,5 +31,5 @@ class Menu extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
             this.scene.start("controlsScene");
         }
-      }
+    }
 }

@@ -25,6 +25,18 @@ class Boot extends Phaser.Scene {
         this.load.image("tilemap_pirates", "tilemap_packed_pirates.png");
         this.load.image("tilemap_rpg", "tilemap_packed.png");
         this.load.tilemapTiledJSON("firstchamber", "firstchamber.tmj");
+
+        // Load assets
+        this.load.image('player', 'wizard.png');
+        this.load.image('enemy', 'badguy.png');
+        this.load.image('collectible', 'collectible.png');
+
+        // Load UI assets
+        this.load.image('dialogueBox', 'dialogueBox.png');
+
+        // Load sound effects
+        this.load.audio('backgroundMusic', 'backgroundMusic.mp3');
+        this.load.audio('combatSound', 'combatSound.mp3');
     }
 
     create() {
