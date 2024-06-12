@@ -19,7 +19,7 @@ class Boot extends Phaser.Scene {
     }
 
     preload() {
-        this.load.setPath("../assets/"); // set load path
+        this.load.setPath("assets"); // set load path
         
         // load tilemap info
         this.load.image("tilemap_pirates", "tilemap_packed_pirates.png");
