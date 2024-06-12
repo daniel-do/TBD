@@ -3,10 +3,24 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "firstchamber.tmx",
     "expandedProjectPaths": [
     ],
     "fileStates": {
+        "firstchamber.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 707.9999999999999,
+                "y": 536.6666666666666
+            }
+        },
+        "firstchamber.tmx#tilemap_packed": {
+            "scaleInDock": 1
+        },
+        "firstchamber.tmx#tilemap_packed_pirates": {
+            "scaleInDock": 1.5
+        }
     },
     "last.exportedFilePath": "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/TBD/assets",
     "last.imagePath": "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/TBD/assets",
@@ -17,9 +31,11 @@
     "map.tileWidth": 16,
     "map.width": 80,
     "openFiles": [
+        "firstchamber.tmx"
     ],
     "project": "TBDMap.tiled-project",
     "recentFiles": [
+        "firstchamber.tmx"
     ],
     "tileset.embedInMap": true,
     "tileset.tileSize": {

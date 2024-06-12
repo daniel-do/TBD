@@ -12,23 +12,26 @@ class Play extends Phaser.Scene {
         this.backgroundMusic = this.sound.add('backgroundMusic', { loop: true });
         this.backgroundMusic.play();
 
-        // Create tilemap and layers
-        const map = this.make.tilemap({ key: "firstchamber" });
-        const tileset = map.addTilesetImage("tilemap_packed", "tilemap_rpg");
+        // loading the map
+        // 16x16 tiles, 80 tiles wide 60 tiles tall
+        this.map = this.add.tilemap("firstchamber", 16, 16, 80, 60);
+        this.physics.world.setBounds(0, 0, 80*16, 60*16);
+        this.tilesetPirate = this.map.addTilesetImage("tilemap_packed_pirates", "tilemap_pirates")
 
-        // Ensure these names match the names in your tilemap JSON file
-        const groundLayer = map.createLayer("background", tileset);
-        const obstaclesLayer = map.createLayer("ship", tileset);
+        // create layers
+        this.bgLayer = this.map.createLayer("background", this.tilesetPirate, 0, 0);
+        this.shipLayer = this.map.createLayer("ship", this.tilesetPirate, 0, 0);
+        this.sailLayer = this.map.createLayer("sail", this.tilesetPirate, 0, 0);
 
-        if (!groundLayer || !obstaclesLayer) {
-            console.error('Invalid tilemap layer names. Valid names are:', map.layers.map(l => l.name));
-            return;
-        }
+        // if (!groundLayer || !obstaclesLayer) {
+        //     console.error('Invalid tilemap layer names. Valid names are:', map.layers.map(l => l.name));
+        //     return;
+        // }
 
-        obstaclesLayer.setCollisionByProperty({ collides: true });
+        this.shipLayer.setCollisionByProperty({ collides: true });
 
         // Player setup
-        this.player = this.physics.add.sprite(100, 100, 'player').setScale(SCALE);
+        this.player = this.physics.add.sprite(400, 500, 'player').setScale(SCALE);
 
         // Enable WASD input
         this.wasd = {
@@ -39,7 +42,7 @@ class Play extends Phaser.Scene {
         };
 
         // Collisions
-        this.physics.add.collider(this.player, obstaclesLayer);
+        this.physics.add.collider(this.player, this.shipLayer);
 
         // Enemies setup
         this.enemies = this.physics.add.group();
@@ -47,7 +50,7 @@ class Play extends Phaser.Scene {
             let enemy = this.physics.add.sprite(200 + i * 100, 200, 'enemy').setScale(SCALE);
             this.enemies.add(enemy);
         }
-        this.physics.add.collider(this.enemies, obstaclesLayer);
+        this.physics.add.collider(this.enemies, this.shipLayer);
         this.physics.add.overlap(this.player, this.enemies, this.startCombat, null, this);
 
         // Collectibles setup
@@ -93,7 +96,7 @@ class Play extends Phaser.Scene {
 
     startCombat(player, enemy) {
         this.scene.pause();
-        this.scene.launch('combatScene', { player: player, enemy: enemy, playScene: this });
+        this.scene.launch("combatScene", { player: player, enemy: enemy, playScene: this });
     }
 
     collectItem(player, collectible) {
