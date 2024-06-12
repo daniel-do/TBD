@@ -17,10 +17,19 @@ class Play extends Phaser.Scene {
         this.map = this.add.tilemap("firstchamber", 16, 16, 80, 60);
         //this.physics.world.setBounds(0, 0, 80*16, 60*16);
         this.tilesetPirate = this.map.addTilesetImage("tilemap_packed_pirates", "tilemap_pirates")
+        this.tilesetRPG = this.map.addTilesetImage("tilemap_packed", "tilemap_rpg");
 
         // create layers
+        // bg
         this.bgLayer = this.map.createLayer("background", this.tilesetPirate, 0, 0);
         this.bgLayer.setScale(SCALE);
+        // ledge
+        this.ledgeLayer = this.map.createLayer("ledge", this.tilesetRPG, 0, 0);
+        this.ledgeLayer.setScale(SCALE);
+        // details
+        this.detailsLayer = this.map.createLayer("details", this.tilesetPirate, 0, 0);
+        this.detailsLayer.setScale(SCALE);
+        // ship
         this.shipLayer = this.map.createLayer("ship", this.tilesetPirate, 0, 0);
         this.shipLayer.setScale(SCALE);
         this.sailLayer = this.map.createLayer("sail", this.tilesetPirate, 0, 0);
@@ -33,6 +42,8 @@ class Play extends Phaser.Scene {
         // }
 
         this.bgLayer.setCollisionByProperty({ collides: true });
+        this.ledgeLayer.setCollisionByProperty({ collides: true });
+        this.detailsLayer.setCollisionByProperty({ collides: true });
         this.shipLayer.setCollisionByProperty({ collides: true });
 
         // Player setup
@@ -54,6 +65,8 @@ class Play extends Phaser.Scene {
 
         // Collisions
         this.physics.add.collider(this.player, this.bgLayer);
+        this.physics.add.collider(this.player, this.ledgeLayer);
+        this.physics.add.collider(this.player, this.detailsLayer);
         this.physics.add.collider(this.player, this.shipLayer);
 
         // Enemies setup
