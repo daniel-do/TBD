@@ -15,13 +15,16 @@ class Play extends Phaser.Scene {
         // loading the map
         // 16x16 tiles, 80 tiles wide 60 tiles tall
         this.map = this.add.tilemap("firstchamber", 16, 16, 80, 60);
-        this.physics.world.setBounds(0, 0, 80*16, 60*16);
+        //this.physics.world.setBounds(0, 0, 80*16, 60*16);
         this.tilesetPirate = this.map.addTilesetImage("tilemap_packed_pirates", "tilemap_pirates")
 
         // create layers
         this.bgLayer = this.map.createLayer("background", this.tilesetPirate, 0, 0);
+        this.bgLayer.setScale(SCALE);
         this.shipLayer = this.map.createLayer("ship", this.tilesetPirate, 0, 0);
+        this.shipLayer.setScale(SCALE);
         this.sailLayer = this.map.createLayer("sail", this.tilesetPirate, 0, 0);
+        this.sailLayer.setScale(SCALE);
 
         // if (!groundLayer || !obstaclesLayer) {
         //     console.error('Invalid tilemap layer names. Valid names are:', map.layers.map(l => l.name));
@@ -40,6 +43,11 @@ class Play extends Phaser.Scene {
             left: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A),
             right: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D)
         };
+
+        // Camera
+        this.cameras.main.setBounds(0, 0, totalWidth, totalHeight);
+        this.cameras.main.startFollow(this.player, true, 0.25, 0.25); // (target, [,roundPixels][,lerpX][,lerpY])
+        this.cameras.main.setDeadzone(200, 200);
 
         // Collisions
         this.physics.add.collider(this.player, this.shipLayer);

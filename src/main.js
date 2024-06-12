@@ -9,8 +9,9 @@
 "use strict"
 
 const screenWidth = 800; // Width of one screen
-const totalWidth = screenWidth * 3; // Total width of the game world
+const totalWidth = 1280 * 2; // Total width of the game world
 const screenHeight = 600; // Height of the screen
+const totalHeight = 960 * 2 // Total height of game world
 
 // game config
 let config = {
