@@ -16,7 +16,8 @@
             }
         },
         "firstchamber.tmx#tilemap_packed": {
-            "scaleInDock": 1
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "firstchamber.tmx#tilemap_packed_pirates": {
             "scaleInDock": 1.5
@@ -34,6 +35,7 @@
         "firstchamber.tmx"
     ],
     "project": "TBDMap.tiled-project",
+    "property.type": "bool",
     "recentFiles": [
         "firstchamber.tmx"
     ],

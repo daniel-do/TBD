@@ -25,16 +25,19 @@ class Play extends Phaser.Scene {
         this.shipLayer.setScale(SCALE);
         this.sailLayer = this.map.createLayer("sail", this.tilesetPirate, 0, 0);
         this.sailLayer.setScale(SCALE);
+        this.sailLayer.setDepth(1);
 
         // if (!groundLayer || !obstaclesLayer) {
         //     console.error('Invalid tilemap layer names. Valid names are:', map.layers.map(l => l.name));
         //     return;
         // }
 
+        this.bgLayer.setCollisionByProperty({ collides: true });
         this.shipLayer.setCollisionByProperty({ collides: true });
 
         // Player setup
         this.player = this.physics.add.sprite(400, 500, 'player').setScale(SCALE);
+        this.player.setDepth(0);
 
         // Enable WASD input
         this.wasd = {
@@ -50,6 +53,7 @@ class Play extends Phaser.Scene {
         this.cameras.main.setDeadzone(200, 200);
 
         // Collisions
+        this.physics.add.collider(this.player, this.bgLayer);
         this.physics.add.collider(this.player, this.shipLayer);
 
         // Enemies setup
