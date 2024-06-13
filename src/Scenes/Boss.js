@@ -13,7 +13,7 @@ class Boss extends Phaser.Scene {
         this.backgroundMusic.play();
 
         // loading the map
-        // 16x16 tiles, 80 tiles wide 60 tiles tall
+        // 16x16 tiles, 50 tiles wide 40 tiles tall
         this.map = this.add.tilemap("bosschamber", 16, 16, 50, 40);
         //this.physics.world.setBounds(0, 0, 80*16, 60*16);
         this.tilesetPirate = this.map.addTilesetImage("tilemap_packed_pirates", "tilemap_pirates")
@@ -31,7 +31,7 @@ class Boss extends Phaser.Scene {
         this.detailsLayer.setCollisionByProperty({ collides: true });
 
         // Player setup
-        this.player = this.physics.add.sprite(200, 200, 'player').setScale(SCALE);
+        this.player = this.physics.add.sprite(345, 390, 'player').setScale(SCALE);
         this.player.setDepth(0);
 
         // Enable WASD input

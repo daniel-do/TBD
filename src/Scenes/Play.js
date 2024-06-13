@@ -37,7 +37,7 @@ class Play extends Phaser.Scene {
         this.shipLayer.setCollisionByProperty({ collides: true });
 
         // Player setup
-        this.player = this.physics.add.sprite(400, 500, 'player').setScale(SCALE);
+        this.player = this.physics.add.sprite(500, 500, 'player').setScale(SCALE);
         this.player.setDepth(0);
 
         // Enable WASD input
@@ -82,7 +82,7 @@ class Play extends Phaser.Scene {
         if (staircaseObject) {
             // Create a sprite for the stairs
             this.stairs = this.physics.add.sprite(1168.00 * 2, 464.67 * 2, "tilemap_sheet", 83);
-            this.stairs.setScale(SCALE); // Scale the stairs if needed
+            this.stairs.setScale(SCALE);
 
             // Set physics properties for the stairs
             this.physics.world.enable(this.stairs, Phaser.Physics.Arcade.STATIC_BODY);
@@ -90,6 +90,7 @@ class Play extends Phaser.Scene {
             // Trigger entering boss chamber
             this.physics.add.overlap(this.player, this.stairs, () => {
                 // boss chamber scene
+                this.backgroundMusic.stop();
                 this.scene.start("bossScene");
             });
         }
