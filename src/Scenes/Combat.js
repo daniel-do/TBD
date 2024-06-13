@@ -10,14 +10,18 @@ class Combat extends Phaser.Scene {
     }
 
     create() {
-        this.uiXCord = 400;
-        this.uiYCord = 300;
+        this.uiXCord = screenWidth/2;
+        this.uiYCord = screenHeight/2;
 
-        this.bgPanel = this.add.sprite(this.uiXCord, this.uiYCord, 'bgPanel').setOrigin(0.5);
-        this.bgPanel.setDepth(1);
+        this.bgPanel = this.add.sprite(this.uiXCord, this.uiYCord, 'bgPanel');
+        this.bgPanel.setScale(6, 4);
+        this.bgPanel.visible = false;
 
-        this.combatText = this.add.text(400, 300, 'Choose: Fire, Water, Grass', { fontSize: '32px', fill: '#000000' }).setOrigin(0.5);
-        this.combatText.setDepth(2);
+        this.showDialogue("Choose: Fire, Water, or Grass");
+
+        // this.combatText = this.add.text(400, 300, 'Choose: Fire, Water, Grass', { fontSize: '32px', fill: '#000000' }).setOrigin(0.5);
+        // this.combatText.setDepth(2);
+
 
         this.input.keyboard.on('keydown-F', () => this.resolveCombat('fire'));
         this.input.keyboard.on('keydown-W', () => this.resolveCombat('water'));
@@ -31,16 +35,16 @@ class Combat extends Phaser.Scene {
 
         if (result === 'win') {
             this.enemy.destroy();
-            this.combatText.setText('You won! Enemy defeated.');
+            this.showDialogue('You won! Enemy defeated.');
         } else if (result === 'lose') {
             this.playScene.playerHealth--;
             if (this.playScene.playerHealth <= 0) {
                 this.playScene.scene.start('gameoverScene');
             } else {
-                this.combatText.setText('You lost! Try again.');
+                this.showDialogue('You lost! Try again.');
             }
         } else {
-            this.combatText.setText('It\'s a draw! Try again.');
+            this.showDialogue('It\'s a draw! Try again.');
         }
 
         this.time.delayedCall(2000, () => {
@@ -63,5 +67,20 @@ class Combat extends Phaser.Scene {
         } else {
             return 'lose';
         }
+    }
+
+    // Function to show the dialogue box with given text
+    showDialogue(text) {
+        this.bgPanel.visible = true;
+
+        // Clear previous text object, if exists
+        if (this.textObj) {
+            this.textObj.destroy();
+        }
+
+        // Add text to the dialogue box
+        const style = { font: "20px Arial", fill: "#000000", wordWrap: true, wordWrapWidth: this.bgPanel.width * 0.8, align: "center", justify: "center"};
+        this.textObj = this.add.text(this.bgPanel.x, this.bgPanel.y, text, style); // Adjust the text position based on the bgPanel's size
+        this.textObj.setOrigin(0.5); // Center the text
     }
 }
