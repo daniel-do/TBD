@@ -15,31 +15,21 @@ class Play extends Phaser.Scene {
         // loading the map
         // 16x16 tiles, 80 tiles wide 60 tiles tall
         this.map = this.add.tilemap("firstchamber", 16, 16, 80, 60);
-        //this.physics.world.setBounds(0, 0, 80*16, 60*16);
-        this.tilesetPirate = this.map.addTilesetImage("tilemap_packed_pirates", "tilemap_pirates")
+        this.tilesetPirate = this.map.addTilesetImage("tilemap_packed_pirates", "tilemap_pirates");
         this.tilesetRPG = this.map.addTilesetImage("tilemap_packed", "tilemap_rpg");
 
         // create layers
-        // bg
         this.bgLayer = this.map.createLayer("background", this.tilesetPirate, 0, 0);
         this.bgLayer.setScale(SCALE);
-        // ledge
         this.ledgeLayer = this.map.createLayer("ledge", this.tilesetRPG, 0, 0);
         this.ledgeLayer.setScale(SCALE);
-        // details
         this.detailsLayer = this.map.createLayer("details", this.tilesetPirate, 0, 0);
         this.detailsLayer.setScale(SCALE);
-        // ship
         this.shipLayer = this.map.createLayer("ship", this.tilesetPirate, 0, 0);
         this.shipLayer.setScale(SCALE);
         this.sailLayer = this.map.createLayer("sail", this.tilesetPirate, 0, 0);
         this.sailLayer.setScale(SCALE);
         this.sailLayer.setDepth(1);
-
-        // if (!groundLayer || !obstaclesLayer) {
-        //     console.error('Invalid tilemap layer names. Valid names are:', map.layers.map(l => l.name));
-        //     return;
-        // }
 
         this.bgLayer.setCollisionByProperty({ collides: true });
         this.ledgeLayer.setCollisionByProperty({ collides: true });
@@ -71,10 +61,7 @@ class Play extends Phaser.Scene {
 
         // Enemies setup
         this.enemies = this.physics.add.group();
-        for (let i = 0; i < 5; i++) {
-            let enemy = this.physics.add.sprite(400 + i * 100, 600, 'enemy').setScale(SCALE);
-            this.enemies.add(enemy);
-        }
+        this.spawnObjects(this.enemies, 'enemy', 5);
 
         this.physics.add.collider(this.enemies, this.bgLayer);
         this.physics.add.collider(this.enemies, this.ledgeLayer);
@@ -84,10 +71,8 @@ class Play extends Phaser.Scene {
 
         // Collectibles setup
         this.collectibles = this.physics.add.group();
-        for (let i = 0; i < 3; i++) {
-            let collectible = this.physics.add.sprite(300 + i * 150, 300, 'collectible');
-            this.collectibles.add(collectible);
-        }
+        this.spawnObjects(this.collectibles, 'collectible', 3);
+
         this.physics.add.overlap(this.player, this.collectibles, this.collectItem, null, this);
 
         // establishing stairs
@@ -106,6 +91,7 @@ class Play extends Phaser.Scene {
 
         // Player health
         this.playerHealth = 3;
+        this.createHealthBar();
     }
 
     update() {
@@ -147,6 +133,45 @@ class Play extends Phaser.Scene {
         // Restore health or give some other benefit
         if (this.playerHealth < 3) {
             this.playerHealth++;
+            this.updateHealthBar();
+        }
+    }
+
+    createHealthBar() {
+        this.healthBar = this.add.group({
+            key: 'collectible',
+            repeat: 2,
+            setXY: { x: screenWidth - 40, y: 20, stepX: -40 }
+        });
+
+        this.healthBar.children.iterate(function (child) {
+            child.setScale(0.5);
+        });
+    }
+
+    updateHealthBar() {
+        this.healthBar.clear(true, true);
+
+        for (let i = 0; i < this.playerHealth; i++) {
+            let healthIcon = this.add.image(screenWidth - 40 - i * 40, 20, 'collectible');  
+            healthIcon.setScale(0.5);
+            this.healthBar.add(healthIcon);
+        }
+    }
+
+    spawnObjects(group, spriteKey, count) {
+        for (let i = 0; i < count; i++) {
+            let x, y, tile;
+
+            do {
+                x = Phaser.Math.Between(0, this.map.widthInPixels);
+                y = Phaser.Math.Between(0, this.map.heightInPixels);
+                tile = this.map.getTileAtWorldXY(x, y, true, this.cameras.main, 'background');
+            } while (!tile || tile.collides);
+
+            let obj = this.physics.add.sprite(x, y, spriteKey).setScale(SCALE);
+            group.add(obj);
         }
     }
 }
+   
