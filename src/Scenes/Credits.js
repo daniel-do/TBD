@@ -8,21 +8,15 @@ class Credits extends Phaser.Scene {
     }
 
     create() {
-        let menuConfig = {
-            fontFamily: 'Arial',
-            fontSize: '32px',
-            color: 'white',
-            align: 'center',
-            padding: {
-                top: 5,
-                bottom: 5,
-            },
-            fixedWidth: 0
-        }
+        this.uiXCord = screenWidth/2;
+        this.uiYCord = screenHeight/2;
 
-        this.add.text(game.config.width / 2, (game.config.height * 1) / 4, 'Credits', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width / 2, (game.config.height * 2) / 4, 'Created by Daniel Do, Em Ishida, and Scott Kuwahara ', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width / 2, (game.config.height * 3) / 4, 'Press SPACE to start the game', menuConfig).setOrigin(0.5);
+        this.bgPanel = this.add.sprite(this.uiXCord, this.uiYCord, 'bgPanel');
+        this.bgPanel.setScale(1.25);
+
+        this.add.bitmapText(game.config.width / 2, (game.config.height / 2) - 50, 'alagard', 'Created by Daniel Do, Em Ishida,').setOrigin(0.5);
+        this.add.bitmapText(game.config.width / 2, (game.config.height / 2) - 20, 'alagard', 'and Scott Kuwahara').setOrigin(0.5);
+        this.add.bitmapText(game.config.width / 2, (game.config.height / 2) + 50, 'alagard', 'Press SPACE to continue').setOrigin(0.5);
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }

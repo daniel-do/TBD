@@ -8,20 +8,14 @@ class Controls extends Phaser.Scene {
     }
 
     create() {
-        let menuConfig = {
-            fontFamily: 'Arial',
-            fontSize: '32px',
-            color: 'white',
-            align: 'center',
-            padding: {
-                top: 5,
-                bottom: 5,
-            },
-            fixedWidth: 0
-        }
+        this.uiXCord = screenWidth/2;
+        this.uiYCord = screenHeight/2;
 
-        this.add.text(game.config.width / 2, (game.config.height * 1) / 4, 'Use WASD to move', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width / 2, (game.config.height * 2) / 4, 'Press SPACE to advance through scenes', menuConfig).setOrigin(0.5);
+        this.bgPanel = this.add.sprite(this.uiXCord, this.uiYCord, 'bgPanel');
+        this.bgPanel.setScale(1.25);
+
+        this.add.bitmapText(game.config.width / 2, (game.config.height / 2) - 50, 'alagard', 'Use WASD to move').setOrigin(0.5);
+        this.add.bitmapText(game.config.width / 2, (game.config.height / 2) + 50, 'alagard', 'Press SPACE to continue').setOrigin(0.5);
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }
