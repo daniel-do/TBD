@@ -53,7 +53,7 @@ class Play extends Phaser.Scene {
         this.cameras.main.startFollow(this.player, true, 0.25, 0.25); // (target, [,roundPixels][,lerpX][,lerpY])
         this.cameras.main.setDeadzone(200, 200);
 
-        // Collisions
+        // Collisions for player
         this.physics.add.collider(this.player, this.bgLayer);
         this.physics.add.collider(this.player, this.ledgeLayer);
         this.physics.add.collider(this.player, this.detailsLayer);
@@ -63,6 +63,7 @@ class Play extends Phaser.Scene {
         this.enemies = this.physics.add.group();
         this.spawnObjects(this.enemies, 'enemy', 5);
 
+        // Collisions for enemies
         this.physics.add.collider(this.enemies, this.bgLayer);
         this.physics.add.collider(this.enemies, this.ledgeLayer);
         this.physics.add.collider(this.enemies, this.detailsLayer);
@@ -83,6 +84,7 @@ class Play extends Phaser.Scene {
             // Create a sprite for the stairs
             this.stairs = this.physics.add.sprite(1168.00 * 2, 464.67 * 2, "tilemap_sheet", 83);
             this.stairs.setScale(SCALE);
+            this.stairs.visible = false;
 
             // Set physics properties for the stairs
             this.physics.world.enable(this.stairs, Phaser.Physics.Arcade.STATIC_BODY);
@@ -103,6 +105,11 @@ class Play extends Phaser.Scene {
     update() {
         this.handlePlayerMovement();
         this.handleEnemyMovement();
+        this.unlockBossChamber();
+
+        if (bossUnlocked === true) {
+            this.stairs.visible = true;
+        }
     }
 
     handlePlayerMovement() {
@@ -177,6 +184,12 @@ class Play extends Phaser.Scene {
 
             let obj = this.physics.add.sprite(x, y, spriteKey).setScale(SCALE);
             group.add(obj);
+        }
+    }
+
+    unlockBossChamber() {
+        if (enemyCount === 0) {
+            bossUnlocked = true;
         }
     }
 }

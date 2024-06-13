@@ -8,6 +8,7 @@
     ],
     "fileStates": {
         "": {
+            "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/PlatformImprovement/assets/platformer-level-1.tmx": {
@@ -30,6 +31,9 @@
             }
         },
         "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/sugar rush platformer.tmx": {
+            "expandedObjectLayers": [
+                4
+            ],
             "scale": 1.5,
             "selectedLayer": 4,
             "viewCenter": {
@@ -63,10 +67,10 @@
                 7
             ],
             "scale": 1.5,
-            "selectedLayer": 3,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 1086,
-                "y": 415
+                "x": 1048,
+                "y": 313
             }
         },
         "firstchamber.tmx#tilemap_packed": {
@@ -86,14 +90,18 @@
     "map.tileWidth": 16,
     "map.width": 50,
     "openFiles": [
-        "firstchamber.tmx"
+        "firstchamber.tmx",
+        "bosschamber.tmx",
+        "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/sugar rush platformer.tmx"
     ],
     "project": "TBDMap.tiled-project",
     "property.type": "bool",
     "recentFiles": [
+        "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/sugar rush platformer.tmx",
+        "bosschamber.tmx",
+        "firstchamber.tmx",
         "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/PlatformImprovement/assets/platformer-level-1.tmx",
-        "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/Sugar Rush Platformer/assets/sugar-rush-platformer.tmx",
-        "firstchamber.tmx"
+        "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/Sugar Rush Platformer/assets/sugar-rush-platformer.tmx"
     ],
     "tileset.embedInMap": true,
     "tileset.tileSize": {
