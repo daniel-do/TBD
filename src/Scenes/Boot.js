@@ -34,8 +34,8 @@ class Boot extends Phaser.Scene {
         });
 
         // Load assets
-        this.load.image('player', 'wizard.png');
-        this.load.image('enemy', 'badguy.png');
+        this.load.image('player', 'wizard_recolor.png');
+        this.load.image('enemy', 'pirate_enemy.png');
         this.load.image('collectible', 'collectible.png');
 
         // Load UI assets
