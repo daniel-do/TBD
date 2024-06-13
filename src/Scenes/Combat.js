@@ -39,6 +39,8 @@ class Combat extends Phaser.Scene {
         } else if (result === 'lose') {
             this.playScene.playerHealth--;
             if (this.playScene.playerHealth <= 0) {
+                this.showDialogue('');
+                this.bgPanel.visible = false;
                 this.playScene.scene.start('gameoverScene');
             } else {
                 this.showDialogue('You lost! Try again.');
