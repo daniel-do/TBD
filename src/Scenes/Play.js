@@ -169,8 +169,8 @@ class Play extends Phaser.Scene {
             let x, y, tile;
 
             do {
-                x = Phaser.Math.Between(0, this.map.widthInPixels);
-                y = Phaser.Math.Between(0, this.map.heightInPixels);
+                x = Phaser.Math.Between(0, totalWidth);
+                y = Phaser.Math.Between(0, totalHeight);
                 tile = this.map.getTileAtWorldXY(x, y, true, this.cameras.main, 'background');
             } while (!tile || tile.collides);
 
