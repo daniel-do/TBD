@@ -10,12 +10,34 @@
         "": {
             "scaleInEditor": 1
         },
-        "firstchamber.tmx": {
-            "scale": 1.5,
-            "selectedLayer": 1,
+        "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/PlatformImprovement/assets/platformer-level-1.tmx": {
+            "scale": 0.8939236111111111,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 1174,
-                "y": 257
+                "x": 441.87220819576623,
+                "y": 225.4107593707516
+            }
+        },
+        "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/PlatformImprovement/assets/platformer-level-1.tmx#kenny_tilemap_packed": {
+            "scaleInDock": 1
+        },
+        "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/Sugar Rush Platformer/assets/sugar-rush-platformer.tmx": {
+            "scale": 0.35756944444444444,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1082.3072441250729,
+                "y": 180.38454068751219
+            }
+        },
+        "firstchamber.tmx": {
+            "expandedObjectLayers": [
+                6
+            ],
+            "scale": 1.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 407.99999999999994,
+                "y": 353.66666666666663
             }
         },
         "firstchamber.tmx#tilemap_packed": {
@@ -28,18 +50,20 @@
     },
     "last.exportedFilePath": "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/TBD/assets",
     "last.imagePath": "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/TBD/assets",
-    "map.height": 60,
+    "map.height": 40,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
-    "map.width": 80,
+    "map.width": 50,
     "openFiles": [
         "firstchamber.tmx"
     ],
     "project": "TBDMap.tiled-project",
     "property.type": "bool",
     "recentFiles": [
+        "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/PlatformImprovement/assets/platformer-level-1.tmx",
+        "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/Sugar Rush Platformer/assets/sugar-rush-platformer.tmx",
         "firstchamber.tmx"
     ],
     "tileset.embedInMap": true,
