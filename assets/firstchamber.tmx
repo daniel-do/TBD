@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="80" height="60" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="1">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="80" height="60" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="12">
  <editorsettings>
   <export target="firstchamber.tmj" format="json"/>
  </editorsettings>
@@ -642,6 +642,19 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="6" name="enemies" visible="0">
+  <object id="1" name="enemy" gid="264" x="992.667" y="417.333" width="16" height="16"/>
+  <object id="2" name="enemy" gid="264" x="1135.33" y="160" width="16" height="16"/>
+  <object id="3" name="enemy" gid="264" x="944" y="688" width="16" height="16"/>
+  <object id="4" name="enemy" gid="264" x="1088" y="688" width="16" height="16"/>
+  <object id="5" name="enemy" gid="264" x="606.667" y="848" width="16" height="16"/>
+  <object id="6" name="enemy" gid="264" x="606.667" y="560" width="16" height="16"/>
+  <object id="7" name="enemy" gid="264" x="224.667" y="384.667" width="16" height="16"/>
+  <object id="8" name="enemy" gid="264" x="512" y="320.667" width="16" height="16"/>
+  <object id="9" name="enemy" gid="264" x="448" y="239.333" width="16" height="16"/>
+  <object id="10" name="enemy" gid="264" x="176" y="880" width="16" height="16"/>
+  <object id="11" name="enemy" gid="264" x="480.667" y="689.333" width="16" height="16"/>
+ </objectgroup>
  <layer id="4" name="details" width="80" height="60">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

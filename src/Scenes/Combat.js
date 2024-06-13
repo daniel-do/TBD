@@ -19,10 +19,6 @@ class Combat extends Phaser.Scene {
 
         this.showDialogue("Choose: Fire, Water, or Grass");
 
-        // this.combatText = this.add.text(400, 300, 'Choose: Fire, Water, Grass', { fontSize: '32px', fill: '#000000' }).setOrigin(0.5);
-        // this.combatText.setDepth(2);
-
-
         this.input.keyboard.on('keydown-F', () => this.resolveCombat('fire'));
         this.input.keyboard.on('keydown-W', () => this.resolveCombat('water'));
         this.input.keyboard.on('keydown-G', () => this.resolveCombat('grass'));

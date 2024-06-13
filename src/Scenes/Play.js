@@ -69,12 +69,30 @@ class Play extends Phaser.Scene {
         this.physics.add.collider(this.player, this.detailsLayer);
         this.physics.add.collider(this.player, this.shipLayer);
 
+
+        // establishing enemies
+        this.enemies = this.map.getObjectLayer('enemyLayer').objects;
+
+        // Create enemies from parsed objects
+        this.enemies.forEach((enemyObj) => {
+            const enemySprite = this.physics.add.sprite(enemyObj.x, enemyObj.y, 'enemy');
+            enemySprite.setScale(SCALE);
+            // Set any other properties of the enemy sprite based on object properties
+            // Enable physics and define movement behavior if needed
+        });
+
+
+
         // Enemies setup
-        this.enemies = this.physics.add.group();
-        for (let i = 0; i < 5; i++) {
-            let enemy = this.physics.add.sprite(400 + i * 100, 600, 'enemy').setScale(SCALE);
-            this.enemies.add(enemy);
-        }
+        // this.enemies = this.physics.add.group();
+        // for (let i = 0; i < 5; i++) {
+        //     let enemy = this.physics.add.sprite(400 + i * 100, 600, 'enemy').setScale(SCALE);
+        //     this.enemies.add(enemy);
+        // }
+
+        this.physics.add.collider(this.enemies, this.bgLayer);
+        this.physics.add.collider(this.enemies, this.ledgeLayer);
+        this.physics.add.collider(this.enemies, this.detailsLayer);
         this.physics.add.collider(this.enemies, this.shipLayer);
         this.physics.add.overlap(this.player, this.enemies, this.startCombat, null, this);
 
@@ -112,7 +130,7 @@ class Play extends Phaser.Scene {
     }
 
     handleEnemyMovement() {
-        this.enemies.children.iterate(function (enemy) {
+        this.enemies.forEach((enemy) => {
             let randX = Phaser.Math.Between(-1, 1) * 100;
             let randY = Phaser.Math.Between(-1, 1) * 100;
             enemy.setVelocity(randX, randY);
