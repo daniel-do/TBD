@@ -29,11 +29,28 @@
                 "y": 180.38454068751219
             }
         },
+        "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/sugar rush platformer.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 2027.3333333333333,
+                "y": 187.66666666666666
+            }
+        },
+        "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/sugar rush platformer.tmx#tilemap-backgrounds_packed": {
+            "scaleInDock": 1
+        },
+        "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/sugar rush platformer.tmx#tilemap_packed": {
+            "scaleInDock": 1
+        },
+        "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/sugar rush platformer.tmx#tilemap_packed_food": {
+            "scaleInDock": 1
+        },
         "bosschamber.tmx": {
             "scale": 1,
-            "selectedLayer": 1,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 449,
+                "x": 393,
                 "y": 324.5
             }
         },
@@ -42,13 +59,14 @@
         },
         "firstchamber.tmx": {
             "expandedObjectLayers": [
-                6
+                6,
+                7
             ],
             "scale": 1.5,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 1174.6666666666665,
-                "y": 494.33333333333337
+                "x": 1086,
+                "y": 415
             }
         },
         "firstchamber.tmx#tilemap_packed": {

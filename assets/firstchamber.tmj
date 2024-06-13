@@ -290,19 +290,19 @@
         {
          "draworder":"topdown",
          "id":7,
-         "name":"stairs",
+         "name":"Objects",
          "objects":[
                 {
-                 "gid":2147483732,
-                 "height":38.6666666666667,
-                 "id":14,
-                 "name":"staircase",
+                 "gid":84,
+                 "height":16,
+                 "id":16,
+                 "name":"stairs",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":40,
-                 "x":1156,
-                 "y":476
+                 "width":16,
+                 "x":1168,
+                 "y":464.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -524,7 +524,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":16,
+ "nextobjectid":17,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.2",

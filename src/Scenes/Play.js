@@ -75,19 +75,26 @@ class Play extends Phaser.Scene {
 
         this.physics.add.overlap(this.player, this.collectibles, this.collectItem, null, this);
 
-        // establishing stairs
-        this.stairs= this.map.createFromObjects("stairs", {
-            name: "staircase",
-            key: "tilemap_sheet",
-            frame: 83
-        });
-        this.physics.world.enable(this.stairs, Phaser.Physics.Arcade.STATIC_BODY);
+        // Find the staircase object
+        const staircaseObject = this.map.findObject("Objects", obj => obj.name === "stairs");
+        console.log(this.map.getObjectLayer('Objects')); // Check if the object layer exists
+        console.log(this.map.findObject("Objects", obj => obj.name === "stairs")); // Check if the staircase object is found
 
-        // triggering entering boss chamber
-        this.physics.add.overlap(this.player, this.stairs, () => {
-            // boss chamber scene
-            this.scene.start("bossScene");
-        });
+        // Check if the object exists
+        if (staircaseObject) {
+            // Create a sprite for the stairs
+            this.stairs = this.physics.add.sprite(staircaseObject.x, staircaseObject.y, "tilemap_sheet", 16);
+            this.stairs.setScale(SCALE); // Scale the stairs if needed
+
+            // Set physics properties for the stairs
+            this.physics.world.enable(this.stairs, Phaser.Physics.Arcade.STATIC_BODY);
+
+            // Trigger entering boss chamber
+            this.physics.add.overlap(this.player, this.stairs, () => {
+                // boss chamber scene
+                this.scene.start("bossScene");
+            });
+        }
 
         // Player health
         this.playerHealth = 3;
