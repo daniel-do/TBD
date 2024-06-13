@@ -77,13 +77,11 @@ class Play extends Phaser.Scene {
 
         // Find the staircase object
         const staircaseObject = this.map.findObject("Objects", obj => obj.name === "stairs");
-        console.log(this.map.getObjectLayer('Objects')); // Check if the object layer exists
-        console.log(this.map.findObject("Objects", obj => obj.name === "stairs")); // Check if the staircase object is found
 
         // Check if the object exists
         if (staircaseObject) {
             // Create a sprite for the stairs
-            this.stairs = this.physics.add.sprite(staircaseObject.x, staircaseObject.y, "tilemap_sheet", 16);
+            this.stairs = this.physics.add.sprite(1168.00 * 2, 464.67 * 2, "tilemap_sheet", 83);
             this.stairs.setScale(SCALE); // Scale the stairs if needed
 
             // Set physics properties for the stairs
