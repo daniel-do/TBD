@@ -38,6 +38,9 @@ class Boot extends Phaser.Scene {
         // Load sound effects
         this.load.audio('backgroundMusic', 'backgroundMusic.mp3');
         this.load.audio('combatSound', 'combatSound.mp3');
+
+        // Load bitmap font
+        this.load.bitmapFont('alagard', 'alagard.png', 'alagard.xml');
     }
 
     create() {

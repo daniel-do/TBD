@@ -79,8 +79,7 @@ class Combat extends Phaser.Scene {
         }
 
         // Add text to the dialogue box
-        const style = { font: "20px Arial", fill: "#000000", wordWrap: true, wordWrapWidth: this.bgPanel.width * 0.8, align: "center", justify: "center"};
-        this.textObj = this.add.text(this.bgPanel.x, this.bgPanel.y, text, style); // Adjust the text position based on the bgPanel's size
+        this.textObj = this.add.bitmapText(this.bgPanel.x, this.bgPanel.y, 'alagard', text); // Adjust the text position based on the bgPanel's size
         this.textObj.setOrigin(0.5); // Center the text
     }
 }
