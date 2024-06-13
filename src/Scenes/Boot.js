@@ -26,6 +26,12 @@ class Boot extends Phaser.Scene {
         this.load.image("tilemap_rpg", "tilemap_packed.png");
         this.load.tilemapTiledJSON("firstchamber", "firstchamber.tmj");
 
+        // Load the tilemap as a spritesheet
+        this.load.spritesheet("tilemap_sheet_rpg", "tilemap_packed.png", {
+            frameWidth: 16,
+            frameHeight: 16
+        });
+
         // Load assets
         this.load.image('player', 'wizard.png');
         this.load.image('enemy', 'badguy.png');

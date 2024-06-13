@@ -90,6 +90,20 @@ class Play extends Phaser.Scene {
         }
         this.physics.add.overlap(this.player, this.collectibles, this.collectItem, null, this);
 
+        // establishing stairs
+        this.stairs= this.map.createFromObjects("stairs", {
+            name: "staircase",
+            key: "tilemap_sheet",
+            frame: 83
+        });
+        this.physics.world.enable(this.stairs, Phaser.Physics.Arcade.STATIC_BODY);
+
+        // triggering entering boss chamber
+        this.physics.add.overlap(this.player, this.stairs, () => {
+            // boss chamber scene
+            this.scene.start("bossScene");
+        });
+
         // Player health
         this.playerHealth = 3;
     }

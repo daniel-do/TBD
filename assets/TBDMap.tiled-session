@@ -29,15 +29,26 @@
                 "y": 180.38454068751219
             }
         },
+        "bosschamber.tmx": {
+            "scale": 1,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 449,
+                "y": 324.5
+            }
+        },
+        "bosschamber.tmx#tilemap_packed_pirates": {
+            "scaleInDock": 1
+        },
         "firstchamber.tmx": {
             "expandedObjectLayers": [
                 6
             ],
             "scale": 1.5,
-            "selectedLayer": 2,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 407.99999999999994,
-                "y": 353.66666666666663
+                "x": 1174.6666666666665,
+                "y": 494.33333333333337
             }
         },
         "firstchamber.tmx#tilemap_packed": {

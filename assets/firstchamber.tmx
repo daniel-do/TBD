@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="80" height="60" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="12">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="80" height="60" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="16">
  <editorsettings>
   <export target="firstchamber.tmj" format="json"/>
  </editorsettings>
@@ -654,6 +654,9 @@
   <object id="9" name="enemy" gid="264" x="448" y="239.333" width="16" height="16"/>
   <object id="10" name="enemy" gid="264" x="176" y="880" width="16" height="16"/>
   <object id="11" name="enemy" gid="264" x="480.667" y="689.333" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="7" name="stairs">
+  <object id="14" name="staircase" gid="2147483732" x="1156" y="476" width="40" height="38.6667"/>
  </objectgroup>
  <layer id="4" name="details" width="80" height="60">
   <data encoding="csv">
