@@ -72,7 +72,7 @@ class Play extends Phaser.Scene {
         // Enemies setup
         this.enemies = this.physics.add.group();
         for (let i = 0; i < 5; i++) {
-            let enemy = this.physics.add.sprite(200 + i * 100, 200, 'enemy').setScale(SCALE);
+            let enemy = this.physics.add.sprite(400 + i * 100, 600, 'enemy').setScale(SCALE);
             this.enemies.add(enemy);
         }
         this.physics.add.collider(this.enemies, this.shipLayer);

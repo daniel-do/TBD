@@ -10,8 +10,15 @@ class Combat extends Phaser.Scene {
     }
 
     create() {
-        this.combatText = this.add.text(400, 300, 'Choose: Fire, Water, Grass', { fontSize: '32px', fill: '#fff' }).setOrigin(0.5);
-        
+        this.uiXCord = 400;
+        this.uiYCord = 300;
+
+        this.bgPanel = this.add.sprite(this.uiXCord, this.uiYCord, 'bgPanel').setOrigin(0.5);
+        this.bgPanel.setDepth(1);
+
+        this.combatText = this.add.text(400, 300, 'Choose: Fire, Water, Grass', { fontSize: '32px', fill: '#000000' }).setOrigin(0.5);
+        this.combatText.setDepth(2);
+
         this.input.keyboard.on('keydown-F', () => this.resolveCombat('fire'));
         this.input.keyboard.on('keydown-W', () => this.resolveCombat('water'));
         this.input.keyboard.on('keydown-G', () => this.resolveCombat('grass'));

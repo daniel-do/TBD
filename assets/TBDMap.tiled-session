@@ -7,16 +7,19 @@
     "expandedProjectPaths": [
     ],
     "fileStates": {
+        "": {
+            "scaleInEditor": 1
+        },
         "firstchamber.tmx": {
-            "scale": 0.75,
+            "scale": 1.5,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 707.9999999999999,
-                "y": 536.6666666666666
+                "x": 1174,
+                "y": 257
             }
         },
         "firstchamber.tmx#tilemap_packed": {
-            "scaleInDock": 1,
+            "scaleInDock": 1.5,
             "scaleInEditor": 1
         },
         "firstchamber.tmx#tilemap_packed_pirates": {
