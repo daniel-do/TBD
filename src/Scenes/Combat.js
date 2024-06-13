@@ -14,7 +14,7 @@ class Combat extends Phaser.Scene {
         this.uiYCord = screenHeight/2;
 
         this.bgPanel = this.add.sprite(this.uiXCord, this.uiYCord, 'bgPanel');
-        this.bgPanel.setScale(6, 4);
+        this.bgPanel.setScale(1.25);
         this.bgPanel.visible = false;
 
         this.showDialogue("Choose: Fire, Water, or Grass");
