@@ -37,8 +37,8 @@
             "scale": 1.5,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 2027.3333333333333,
-                "y": 187.66666666666666
+                "x": 1080,
+                "y": 180.33333333333331
             }
         },
         "C:/Users/eishi/OneDrive/Documents/GitHub/cmpm 120/sugar rush platformer.tmx#tilemap-backgrounds_packed": {
@@ -54,8 +54,8 @@
             "scale": 1,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 393,
-                "y": 324.5
+                "x": 400,
+                "y": 320.5
             }
         },
         "bosschamber.tmx#tilemap_packed_pirates": {
@@ -63,14 +63,13 @@
         },
         "firstchamber.tmx": {
             "expandedObjectLayers": [
-                6,
                 7
             ],
             "scale": 1.5,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 1048,
-                "y": 313
+                "x": 638.6666666666666,
+                "y": 479
             }
         },
         "firstchamber.tmx#tilemap_packed": {

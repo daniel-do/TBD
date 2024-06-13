@@ -31,7 +31,7 @@ class Boss extends Phaser.Scene {
         this.detailsLayer.setCollisionByProperty({ collides: true });
 
         // Player setup
-        this.player = this.physics.add.sprite(345, 390, 'player').setScale(SCALE);
+        this.player = this.physics.add.sprite(340, 385, 'player').setScale(SCALE);
         this.player.setDepth(0);
 
         // Enable WASD input
@@ -51,11 +51,12 @@ class Boss extends Phaser.Scene {
         this.physics.add.collider(this.player, this.bgLayer);
         this.physics.add.collider(this.player, this.detailsLayer);
 
-        // this.physics.add.collider(this.enemies, this.bgLayer);
-        // this.physics.add.collider(this.enemies, this.ledgeLayer);
-        // this.physics.add.collider(this.enemies, this.detailsLayer);
-        // this.physics.add.collider(this.enemies, this.shipLayer);
-        // this.physics.add.overlap(this.player, this.enemies, this.startCombat, null, this);
+        // boss
+        this.boss = this.physics.add.sprite(1330, 620, 'ghost').setScale(SCALE);
+
+        this.physics.add.collider(this.boss, this.bgLayer);
+        this.physics.add.collider(this.boss, this.detailsLayer);
+        this.physics.add.overlap(this.player, this.boss, this.startCombat, null, this);
 
         // Player health
         this.playerHealth = 3;

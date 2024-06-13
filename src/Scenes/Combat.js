@@ -32,7 +32,9 @@ class Combat extends Phaser.Scene {
         if (result === 'win') {
             this.enemy.destroy();
             this.showDialogue('You won! Enemy defeated.');
-            enemyCount --;
+            if (bossUnlocked === false) {
+                enemyCount --;
+            }
             console.log(enemyCount);
         } else if (result === 'lose') {
             this.playScene.playerHealth--;
