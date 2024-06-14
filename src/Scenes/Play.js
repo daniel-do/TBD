@@ -106,7 +106,7 @@ class Play extends Phaser.Scene {
         }
 
         // Player health
-        this.playerHealth = 3;
+        this.playerHealth = 5;
         this.createHealthBar();
     }
 
@@ -152,7 +152,7 @@ class Play extends Phaser.Scene {
     collectItem(player, collectible) {
         collectible.destroy();
         // Restore health or give some other benefit
-        if (this.playerHealth < 3) {
+        if (this.playerHealth < 5) {
             this.playerHealth++;
             this.updateHealthBar();
         }
