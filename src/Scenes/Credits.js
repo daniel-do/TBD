@@ -29,4 +29,4 @@ class Credits extends Phaser.Scene {
 }
 
 // assets used:
-// kenny monochrome pirates, kenny monochrome rpg, kenny tiny dungeon, alagard font (hewett tsoi)
+// kenny monochrome pirates, kenny monochrome rpg, kenny tiny dungeon, alagard font (hewett tsoi), kenny particles

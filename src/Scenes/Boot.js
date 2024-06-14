@@ -65,6 +65,8 @@ class Boot extends Phaser.Scene {
         // Load bitmap font
         this.load.bitmapFont('alagard', 'alagard.png', 'alagard.xml');
 
+        // loading vfx
+        this.load.multiatlas("kenny-particles", "kenny-particles.json");
     }
 
     create() {
