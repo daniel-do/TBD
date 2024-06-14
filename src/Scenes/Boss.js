@@ -60,6 +60,17 @@ class Boss extends Phaser.Scene {
         this.physics.add.collider(this.boss, this.detailsLayer);
         this.physics.add.overlap(this.player, this.boss, this.startCombat, null, this);
 
+        // movement vfx
+        my.vfx.walking = this.add.particles(0, 0, "kenny-particles", {
+            frame: ["symbol_01.png", "smoke_03.png"],
+            addrandom: true,
+            scale: {start: 0.08, end: 0.03}, 
+            maxAliveParticles: 5,
+            lifespan: 250,
+            alpha: {start: 0.5, end: 0.1}, 
+        });
+        my.vfx.walking.stop();
+
         // Player health
         this.playerHealth = 3;
     }
@@ -73,11 +84,23 @@ class Boss extends Phaser.Scene {
 
         if (this.wasd.left.isDown) {
             this.player.flipX = true;
+
             this.player.anims.play('player_walk', true);
+
+            my.vfx.walking.startFollow(this.player, this.player.displayWidth-15, this.player.displayHeight - 23, false);
+            my.vfx.walking.setParticleSpeed(3, 0);
+            my.vfx.walking.start();
+
             this.player.setVelocityX(-200);
         } else if (this.wasd.right.isDown) {
             this.player.flipX = false;
+
             this.player.anims.play('player_walk', true);
+
+            my.vfx.walking.startFollow(this.player, this.player.displayWidth-45, this.player.displayHeight - 23, false);
+            my.vfx.walking.setParticleSpeed(3, 0);
+            my.vfx.walking.start();
+
             this.player.setVelocityX(200);
         } else {
             this.player.setVelocityX(0);
@@ -85,9 +108,19 @@ class Boss extends Phaser.Scene {
 
         if (this.wasd.up.isDown) {
             this.player.anims.play('player_walk', true);
+
+            my.vfx.walking.startFollow(this.player, this.player.displayWidth-35, this.player.displayHeight - 15, false);
+            my.vfx.walking.setParticleSpeed(3, 0);
+            my.vfx.walking.start();
+
             this.player.setVelocityY(-200);
         } else if (this.wasd.down.isDown) {
             this.player.anims.play('player_walk', true);
+
+            my.vfx.walking.startFollow(this.player, this.player.displayWidth-35, this.player.displayHeight - 40, false);
+            my.vfx.walking.setParticleSpeed(3, 0);
+            my.vfx.walking.start();
+
             this.player.setVelocityY(200);
         } else {
             this.player.setVelocityY(0);
@@ -95,6 +128,7 @@ class Boss extends Phaser.Scene {
 
         if (this.player.body.velocity.x === 0 && this.player.body.velocity.y === 0) {
             this.player.anims.stop('player_walk');
+            my.vfx.walking.stop();
             this.player.setTexture('player_001');
         }
     }

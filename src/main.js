@@ -13,7 +13,7 @@ const totalWidth = 1280 * 2; // Total width of the game world
 const screenHeight = 600; // Height of the screen
 const totalHeight = 960 * 2 // Total height of game world
 
-var enemyCount = 0; // Total number of enemies that must be defeated
+var enemyCount = 5; // Total number of enemies that must be defeated
 var bossUnlocked = false; // Sealing off the boss chamber
 
 // game config

@@ -108,7 +108,6 @@ class Play extends Phaser.Scene {
         }
 
         // movement vfx
-
         my.vfx.walking = this.add.particles(0, 0, "kenny-particles", {
             frame: ["symbol_01.png", "smoke_03.png"],
             addrandom: true,
