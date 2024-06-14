@@ -17,8 +17,7 @@ class Boss extends Phaser.Scene {
         // 16x16 tiles, 50 tiles wide 40 tiles tall
         this.map = this.add.tilemap("bosschamber", 16, 16, 50, 40);
         //this.physics.world.setBounds(0, 0, 80*16, 60*16);
-        this.tilesetPirate = this.map.addTilesetImage("tilemap_packed_pirates", "tilemap_pirates")
-        this.tilesetRPG = this.map.addTilesetImage("tilemap_packed", "tilemap_rpg");
+        this.tilesetPirate = this.map.addTilesetImage("tilemap_packed_pirates", "tilemap_pirates");
 
         // create layers
         // bg

@@ -32,7 +32,7 @@ let config = {
     },
     width: screenWidth,
     height: screenHeight,
-    scene: [Boot, Menu, Controls, Play, Credits, Gameover, Combat, Collectible, Boss, UI]
+    scene: [Boot, Menu, Credits, Controls, Play, Boss, Gameover, Combat, Collectible, UI]
 }
 
 // Global variable to hold sprites
