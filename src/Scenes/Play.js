@@ -10,6 +10,7 @@ class Play extends Phaser.Scene {
     create() {
         // Background music
         this.backgroundMusic = this.sound.add('backgroundMusic', { loop: true });
+        this.backgroundMusic.setVolume(0.5);
         this.backgroundMusic.play();
 
         // loading the map

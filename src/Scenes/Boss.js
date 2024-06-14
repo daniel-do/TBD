@@ -9,7 +9,8 @@ class Boss extends Phaser.Scene {
 
     create() {
         // Background music
-        this.backgroundMusic = this.sound.add('backgroundMusic', { loop: true });
+        this.backgroundMusic = this.sound.add('bossMusic', { loop: true });
+        this.backgroundMusic.setVolume(0.25);
         this.backgroundMusic.play();
 
         // loading the map
