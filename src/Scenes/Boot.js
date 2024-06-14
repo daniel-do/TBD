@@ -35,7 +35,13 @@ class Boot extends Phaser.Scene {
 
         // Load assets
         this.load.image('player', 'wizard_recolor.png');
-        this.load.image('enemy', 'pirate_enemy.png');
+
+        // load enemy assets for animation
+        this.load.image('pirate_enemy_001', 'pirate_enemy_001.png');
+        this.load.image('pirate_enemy_002', 'pirate_enemy_002.png');
+        this.load.image('pirate_enemy_003', 'pirate_enemy_003.png');
+        this.load.image('pirate_enemy_004', 'pirate_enemy_004.png');
+
         this.load.image('collectible', 'collectible.png');
         this.load.image('ghost', 'ghost.png');
 
@@ -50,9 +56,24 @@ class Boot extends Phaser.Scene {
 
         // Load bitmap font
         this.load.bitmapFont('alagard', 'alagard.png', 'alagard.xml');
+
     }
 
     create() {
+        // enemy animation
+        this.anims.create({
+            key: 'enemy_walk',
+            frames: [
+                { key: "pirate_enemy_001" },
+                { key: "pirate_enemy_002" },
+                { key: "pirate_enemy_003" },
+                { key: "pirate_enemy_004" }
+            ],
+            frameRate: 10,
+            repeat: -1
+        });
+
+        // move to next scene
         this.scene.start("menuScene");
     }
 }

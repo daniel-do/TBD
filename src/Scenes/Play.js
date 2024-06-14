@@ -62,7 +62,12 @@ class Play extends Phaser.Scene {
 
         // Enemies setup
         this.enemies = this.physics.add.group();
-        this.spawnObjects(this.enemies, 'enemy', 5);
+        this.spawnObjects(this.enemies, 'pirate_enemy_001', 5);
+
+        // Set up the "enemy_walk" animation for all enemies
+        this.enemies.children.iterate(function (enemy) {
+            enemy.anims.play('enemy_walk', true);
+        });
 
         // Collisions for enemies
         this.physics.add.collider(this.enemies, this.bgLayer);
@@ -92,9 +97,11 @@ class Play extends Phaser.Scene {
 
             // Trigger entering boss chamber
             this.physics.add.overlap(this.player, this.stairs, () => {
-                // boss chamber scene
-                this.backgroundMusic.stop();
-                this.scene.start("bossScene");
+                if (this.stairs.visible === true) {
+                    // boss chamber scene
+                    this.backgroundMusic.stop();
+                    this.scene.start("bossScene");
+                }
             });
         }
 
