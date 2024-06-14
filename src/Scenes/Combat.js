@@ -30,7 +30,11 @@ class Combat extends Phaser.Scene {
         this.bgPanel.setScale(1.25);
         this.bgPanel.visible = false;
 
-        this.showDialogue("Enemy encountered!\n\nPress number to choose\nan element to fight with\n\n[1] Fire\n[2] Water\n[3] Grass");
+        if (enteredBoss) {
+            this.showDialogue("Boss encountered!\n\nPress number to choose\nan element to fight with\n\n[1] Fire\n[2] Water\n[3] Grass");
+        } else {
+            this.showDialogue("Enemy encountered!\n\nPress number to choose\nan element to fight with\n\n[1] Fire\n[2] Water\n[3] Grass");
+        }
     }
 
     update()
@@ -60,18 +64,27 @@ class Combat extends Phaser.Scene {
         const result = this.getResult(playerChoice, enemyChoice);
 
         if (result === 'win') {
-            this.enemy.destroy();
-            this.combatWinSound.play();
-            this.showDialogue('You won! Enemy defeated.');
-            this.choiceMenu = false;
-            if (bossUnlocked === false) {
-                enemyCount --;
+            if (enteredBoss === true) {
+                bossHealth--;
+                this.combatWinSound.play();
+                this.showDialogue('You won! Boss has taken damage.');
+                this.choiceMenu = false;
+                if (bossHealth == 0) {
+                    this.enemy.destroy();
+                }
+            } else {
+                this.enemy.destroy();
+                this.combatWinSound.play();
+                this.showDialogue('You won! Enemy defeated.');
+                this.choiceMenu = false;
+                if (bossUnlocked === false) {
+                    enemyCount --;
+                }
             }
-            console.log(enemyCount);
         } else if (result === 'lose') {
             this.combatLoseSound.play();
-            this.playScene.playerHealth--;
-            if (this.playScene.playerHealth <= 0) {
+            playerHealth--;
+            if (playerHealth <= 0) {
                 this.showDialogue('');
                 this.choiceMenu = false;
                 this.bgPanel.visible = false;

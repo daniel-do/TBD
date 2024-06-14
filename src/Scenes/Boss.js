@@ -69,9 +69,6 @@ class Boss extends Phaser.Scene {
             alpha: {start: 0.5, end: 0.1}, 
         });
         my.vfx.walking.stop();
-
-        // Player health
-        this.playerHealth = 3;
     }
 
     update() {
@@ -141,7 +138,6 @@ class Boss extends Phaser.Scene {
     }
 
     bossAlive() {
-        console.log(bossDefeated);
         if (this.boss.visible === false) {
             bossDefeated = true;
             gameover = true;

@@ -11,6 +11,8 @@ class Gameover extends Phaser.Scene {
 
         let uiScene = this.scene.get('uiDetailScene');
 
+        gameover = true;
+
         // Stop the scene
         if (uiScene) {
             uiScene.scene.stop();

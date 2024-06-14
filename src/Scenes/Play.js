@@ -8,6 +8,7 @@ class Play extends Phaser.Scene {
     }
 
     create() {
+        gameover = false;
         this.my = this.game.my;
 
         // Background music
@@ -83,7 +84,7 @@ class Play extends Phaser.Scene {
 
         // Collectibles setup
         this.collectibles = this.physics.add.group();
-        this.spawnObjects(this.collectibles, 'collectible', 3);
+        this.spawnObjects(this.collectibles, 'collectible', 5);
 
         this.physics.add.overlap(this.player, this.collectibles, this.collectItem, null, this);
 
@@ -208,10 +209,8 @@ class Play extends Phaser.Scene {
     collectItem(player, collectible) {
         collectible.destroy();
         // Restore health or give some other benefit
-        if (playerHealth < 5) {
-            playerHealth++;
-            this.updateHealthBar();
-        }
+        playerHealth++;
+        this.updateHealthBar();
     }
 
     createHealthBar() {
