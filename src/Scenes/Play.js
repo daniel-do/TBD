@@ -38,7 +38,7 @@ class Play extends Phaser.Scene {
         this.shipLayer.setCollisionByProperty({ collides: true });
 
         // Player setup
-        this.player = this.physics.add.sprite(500, 500, 'player').setScale(SCALE);
+        this.player = this.physics.add.sprite(500, 500, 'player_001').setScale(SCALE);
         this.player.setDepth(0);
 
         // Enable WASD input
@@ -124,15 +124,30 @@ class Play extends Phaser.Scene {
         this.player.setVelocity(0);
 
         if (this.wasd.left.isDown) {
+            this.player.flipX = true;
+            this.player.anims.play('player_walk', true);
             this.player.setVelocityX(-200);
         } else if (this.wasd.right.isDown) {
+            this.player.flipX = false;
+            this.player.anims.play('player_walk', true);
             this.player.setVelocityX(200);
+        } else {
+            this.player.setVelocityX(0);
         }
 
         if (this.wasd.up.isDown) {
+            this.player.anims.play('player_walk', true);
             this.player.setVelocityY(-200);
         } else if (this.wasd.down.isDown) {
+            this.player.anims.play('player_walk', true);
             this.player.setVelocityY(200);
+        } else {
+            this.player.setVelocityY(0);
+        }
+
+        if (this.player.body.velocity.x === 0 && this.player.body.velocity.y === 0) {
+            this.player.anims.stop('player_walk');
+            this.player.setTexture('player_001');
         }
     }
 

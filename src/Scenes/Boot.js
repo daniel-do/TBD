@@ -33,8 +33,11 @@ class Boot extends Phaser.Scene {
             frameHeight: 16
         });
 
-        // Load assets
-        this.load.image('player', 'wizard_recolor.png');
+        // Load player assets for animation
+        this.load.image('player_001', 'wizard_001.png');
+        this.load.image('player_002', 'wizard_002.png');
+        this.load.image('player_003', 'wizard_003.png');
+        this.load.image('player_004', 'wizard_004.png');
 
         // load enemy assets for animation
         this.load.image('pirate_enemy_001', 'pirate_enemy_001.png');
@@ -60,6 +63,19 @@ class Boot extends Phaser.Scene {
     }
 
     create() {
+        // player animation
+        this.anims.create({
+            key: 'player_walk',
+            frames: [
+                { key: "player_001" },
+                { key: "player_002" },
+                { key: "player_003" },
+                { key: "player_004" }
+            ],
+            frameRate: 10,
+            repeat: -1
+        });
+
         // enemy animation
         this.anims.create({
             key: 'enemy_walk',
