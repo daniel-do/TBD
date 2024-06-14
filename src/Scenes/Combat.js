@@ -13,6 +13,18 @@ class Combat extends Phaser.Scene {
         this.uiXCord = screenWidth/2;
         this.uiYCord = screenHeight/2;
 
+        // sound effects
+        this.combatStartSound = this.sound.add('combatStart');
+        this.combatStartSound.setVolume(0.5);
+        this.combatStartSound.setRate(1.5);
+        this.combatStartSound.play();
+
+        this.combatWinSound = this.sound.add('combatWin');
+        this.combatWinSound.setVolume(0.8);
+
+        this.combatLoseSound = this.sound.add('combatLose');
+        this.combatLoseSound.setVolume(0.75);
+
         this.bgPanel = this.add.sprite(this.uiXCord, this.uiYCord, 'bgPanel');
         this.bgPanel.setScale(1.25);
         this.bgPanel.visible = false;
@@ -31,12 +43,14 @@ class Combat extends Phaser.Scene {
 
         if (result === 'win') {
             this.enemy.destroy();
+            this.combatWinSound.play();
             this.showDialogue('You won! Enemy defeated.');
             if (bossUnlocked === false) {
                 enemyCount --;
             }
             console.log(enemyCount);
         } else if (result === 'lose') {
+            this.combatLoseSound.play();
             this.playScene.playerHealth--;
             if (this.playScene.playerHealth <= 0) {
                 this.showDialogue('');

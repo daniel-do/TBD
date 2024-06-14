@@ -61,6 +61,9 @@ class Boot extends Phaser.Scene {
         this.load.audio('backgroundMusic', 'backgroundMusic.mp3');
         this.load.audio('bossMusic', 'bossMusic.mp3');
         this.load.audio('combatSound', 'combatSound.mp3');
+        this.load.audio('combatStart', 'knifeSlice2.ogg');
+        this.load.audio('combatWin', 'handleCoins2.ogg');
+        this.load.audio('combatLose', 'chop.ogg');
 
         // Load bitmap font
         this.load.bitmapFont('alagard', 'alagard.png', 'alagard.xml');

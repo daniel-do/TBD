@@ -15,6 +15,9 @@ class Play extends Phaser.Scene {
         this.backgroundMusic.setVolume(0.5);
         this.backgroundMusic.play();
 
+        // sound effects
+        this.combatStartSound = this.sound.add('combatStart');
+
         // loading the map
         // 16x16 tiles, 80 tiles wide 60 tiles tall
         this.map = this.add.tilemap("firstchamber", 16, 16, 80, 60);
