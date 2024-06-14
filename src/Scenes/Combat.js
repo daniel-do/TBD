@@ -43,7 +43,7 @@ class Combat extends Phaser.Scene {
                 this.bgPanel.visible = false;
                 this.playScene.scene.start('gameoverScene');
             } else {
-                this.showDialogue('You lost! Try again.');
+                this.showDialogue('You lost! -1 HP Try again.');
             }
         } else {
             this.showDialogue('It\'s a draw! Try again.');
