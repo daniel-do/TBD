@@ -123,7 +123,6 @@ class Play extends Phaser.Scene {
         my.vfx.walking.stop();
 
         // Player health
-        this.playerHealth = 5;
         this.createHealthBar();
     }
 
@@ -209,8 +208,8 @@ class Play extends Phaser.Scene {
     collectItem(player, collectible) {
         collectible.destroy();
         // Restore health or give some other benefit
-        if (this.playerHealth < 5) {
-            this.playerHealth++;
+        if (playerHealth < 5) {
+            playerHealth++;
             this.updateHealthBar();
         }
     }
@@ -230,7 +229,7 @@ class Play extends Phaser.Scene {
     updateHealthBar() {
         this.healthBar.clear(true, true);
 
-        for (let i = 0; i < this.playerHealth; i++) {
+        for (let i = 0; i < playerHealth; i++) {
             let healthIcon = this.add.image(screenWidth - 40 - i * 40, 20, 'collectible');  
             healthIcon.setScale(0.5);
             this.healthBar.add(healthIcon);

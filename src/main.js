@@ -40,8 +40,9 @@ let config = {
 var my = {sprite: {}, vfx: {}};
 let score = 0;
 let gameover = false;
+let playerHealth = 5;
 const SCALE = 2.0;
 
 const game = new Phaser.Game(config);
 
-let keySPACE;
+let keySPACE, keyONE, keyTWO, keyTHREE;

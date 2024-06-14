@@ -19,6 +19,8 @@ class UI extends Phaser.Scene {
         // checking if combat is active
         let combatScene = this.scene.get('combatScene');
 
+        this.showHealth(playerHealth);
+
         if (combatScene.scene.isActive()) {
             this.showDialogue('');
             this.smallPanel.visible = false;
@@ -46,5 +48,10 @@ class UI extends Phaser.Scene {
         // Add text to the dialogue box
         this.textObj = this.add.bitmapText(this.smallPanel.x, this.smallPanel.y, 'alagard', text); // Adjust the text position based on the bgPanel's size
         this.textObj.setOrigin(0.5); // Center the text
+    }
+
+    showHealth(text) {
+        this.healthText = this.add.bitmapText(this.smallPanel.x/4, this.smallPanel.y/16, 'alagard', 'Health: ' + text, -24);
+        this.healthText.setOrigin(0.5);
     }
 }

@@ -7,6 +7,7 @@ class Combat extends Phaser.Scene {
         this.player = data.player;
         this.enemy = data.enemy;
         this.playScene = data.playScene;
+        this.choiceMenu = true;
     }
 
     create() {
@@ -29,11 +30,28 @@ class Combat extends Phaser.Scene {
         this.bgPanel.setScale(1.25);
         this.bgPanel.visible = false;
 
-        this.showDialogue("Choose: Fire, Water, or Grass");
+        this.showDialogue("Enemy encountered!\n\nPress number to choose\nan element to fight with\n\n[1] Fire\n[2] Water\n[3] Grass");
+    }
 
-        this.input.keyboard.on('keydown-F', () => this.resolveCombat('fire'));
-        this.input.keyboard.on('keydown-W', () => this.resolveCombat('water'));
-        this.input.keyboard.on('keydown-G', () => this.resolveCombat('grass'));
+    update()
+    {
+        if (this.choiceMenu == true) {
+            keyONE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ONE);
+            keyTWO = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.TWO);
+            keyTHREE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.THREE);
+
+            if (Phaser.Input.Keyboard.JustDown(keyONE)) {
+                this.resolveCombat('fire')
+            } else if (Phaser.Input.Keyboard.JustDown(keyTWO)) {
+                this.resolveCombat('water')
+            } else if (Phaser.Input.Keyboard.JustDown(keyTHREE)) {
+                this.resolveCombat('grass')
+            }
+        } else {
+            keyONE = null;
+            keyTWO = null;
+            keyTHREE = null;
+        }
     }
 
     resolveCombat(playerChoice) {
@@ -45,6 +63,7 @@ class Combat extends Phaser.Scene {
             this.enemy.destroy();
             this.combatWinSound.play();
             this.showDialogue('You won! Enemy defeated.');
+            this.choiceMenu = false;
             if (bossUnlocked === false) {
                 enemyCount --;
             }
@@ -54,14 +73,17 @@ class Combat extends Phaser.Scene {
             this.playScene.playerHealth--;
             if (this.playScene.playerHealth <= 0) {
                 this.showDialogue('');
+                this.choiceMenu = false;
                 this.bgPanel.visible = false;
                 gameover = true;
                 this.playScene.scene.start('gameoverScene');
             } else {
                 this.showDialogue('You lost! -1 HP Try again.');
+                this.choiceMenu = false;
             }
         } else {
             this.showDialogue('It\'s a draw! Try again.');
+            this.choiceMenu = false;
         }
 
         this.time.delayedCall(2000, () => {
