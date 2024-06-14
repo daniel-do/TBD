@@ -15,7 +15,6 @@ class Controls extends Phaser.Scene {
         this.bgPanel.setScale(1.25);
 
         this.add.bitmapText(game.config.width / 2, (game.config.height / 2) - 50, 'alagard', 'Use WASD to move').setOrigin(0.5);
-        this.add.bitmapText(game.config.width / 2, (game.config.height / 2) - 20, 'alagard', '[1] Fire, [2] Water, [3] Grass').setOrigin(0.5);
         this.add.bitmapText(game.config.width / 2, (game.config.height / 2) + 50, 'alagard', 'Press SPACE to continue').setOrigin(0.5);
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
