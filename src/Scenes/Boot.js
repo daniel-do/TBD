@@ -56,6 +56,7 @@ class Boot extends Phaser.Scene {
         // Load UI assets
         this.load.image('dialogueBox', 'dialogueBox.png');
         this.load.image('bgPanel', 'ui box tbd.png');
+        this.load.image('smallPanel', 'ui box tbd small.png');
 
         // Load sound effects
         this.load.audio('backgroundMusic', 'backgroundMusic.mp3');

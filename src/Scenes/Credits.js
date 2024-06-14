@@ -23,6 +23,7 @@ class Credits extends Phaser.Scene {
 
     update() {
         if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
+            this.scene.start("uiDetailScene");
             this.scene.start("playScene");
         }
     }

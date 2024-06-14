@@ -1,6 +1,6 @@
 **TBD**
 
-(description here)
+An RPG style dungeon with rock-paper-scissors-like combat
 
 Uses the following assets with gratitude:
 
@@ -12,3 +12,4 @@ Visuals:
 Audio:
 [8 bit background music for Arcade Game](https://pixabay.com/music/video-games-8-bit-background-music-for-arcade-game-come-on-mario-164702/)
 [RPG Audio](https://kenney.nl/assets/rpg-audio)
+[Impact Sounds](https://kenney.nl/assets/impact-sounds)
