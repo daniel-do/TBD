@@ -55,6 +55,7 @@ class Combat extends Phaser.Scene {
             if (this.playScene.playerHealth <= 0) {
                 this.showDialogue('');
                 this.bgPanel.visible = false;
+                gameover = true;
                 this.playScene.scene.start('gameoverScene');
             } else {
                 this.showDialogue('You lost! -1 HP Try again.');

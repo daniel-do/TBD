@@ -128,12 +128,14 @@ class Play extends Phaser.Scene {
     }
 
     update() {
-        this.handlePlayerMovement();
-        this.handleEnemyMovement();
-        this.unlockBossChamber();
+        if (gameover == false) {
+            this.handlePlayerMovement();
+            this.handleEnemyMovement();
+            this.unlockBossChamber();
 
-        if (bossUnlocked === true) {
-            this.stairs.visible = true;
+            if (bossUnlocked === true) {
+                this.stairs.visible = true;
+            }
         }
     }
 
