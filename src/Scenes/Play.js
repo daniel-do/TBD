@@ -105,6 +105,7 @@ class Play extends Phaser.Scene {
                 if (this.stairs.visible === true) {
                     // boss chamber scene
                     this.backgroundMusic.stop();
+                    enteredBoss = true;
                     this.scene.start("bossScene");
                 }
             });

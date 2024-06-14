@@ -24,7 +24,9 @@ class UI extends Phaser.Scene {
             this.smallPanel.visible = false;
         } else {
             // first quest
-            if (enemyCount > 0) {
+            if (enteredBoss === true) {
+                this.showDialogue('Defeat the boss');
+            } else if (enemyCount > 0) {
                 this.showDialogue("Defeat all enemies");
             } else if (enemyCount === 0) {
                 this.showDialogue("Boss unlocked!");
