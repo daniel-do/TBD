@@ -46,7 +46,12 @@ class Boot extends Phaser.Scene {
         this.load.image('pirate_enemy_004', 'pirate_enemy_004.png');
 
         this.load.image('collectible', 'collectible.png');
-        this.load.image('ghost', 'ghost.png');
+
+        // load assets for boss animation
+        this.load.image('ghost_001', 'ghost_001.png');
+        this.load.image('ghost_002', 'ghost_002.png');
+        this.load.image('ghost_003', 'ghost_003.png');
+        this.load.image('ghost_004', 'ghost_004.png');
 
         // Load UI assets
         this.load.image('dialogueBox', 'dialogueBox.png');
@@ -72,7 +77,7 @@ class Boot extends Phaser.Scene {
                 { key: "player_003" },
                 { key: "player_004" }
             ],
-            frameRate: 10,
+            frameRate: 8,
             repeat: -1
         });
 
@@ -85,7 +90,20 @@ class Boot extends Phaser.Scene {
                 { key: "pirate_enemy_003" },
                 { key: "pirate_enemy_004" }
             ],
-            frameRate: 10,
+            frameRate: 8,
+            repeat: -1
+        });
+
+        // boss animation
+        this.anims.create({
+            key: 'boss_float',
+            frames: [
+                { key: "ghost_001" },
+                { key: "ghost_002" },
+                { key: "ghost_003" },
+                { key: "ghost_004" }
+            ],
+            frameRate: 4,
             repeat: -1
         });
 
