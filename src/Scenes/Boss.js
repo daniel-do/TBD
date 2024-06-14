@@ -76,6 +76,7 @@ class Boss extends Phaser.Scene {
 
     update() {
         this.handlePlayerMovement();
+        this.bossAlive();
     }
 
     handlePlayerMovement() {
@@ -135,5 +136,13 @@ class Boss extends Phaser.Scene {
     startCombat(player, enemy) {
         this.scene.pause();
         this.scene.launch("combatScene", { player: player, enemy: enemy, playScene: this });
+    }
+
+    bossAlive() {
+        console.log(bossDefeated);
+        if (this.boss.visible === false) {
+            bossDefeated = true;
+            this.scene.start('gameoverScene');
+        }
     }
 }

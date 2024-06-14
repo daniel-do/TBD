@@ -16,6 +16,7 @@ const totalHeight = 960 * 2 // Total height of game world
 var enemyCount = 5; // Total number of enemies that must be defeated
 var bossUnlocked = false; // Sealing off the boss chamber
 var enteredBoss = false; // checking to see if player has entered boss chamber
+var bossDefeated = false; // checking if the boss has been defeated
 
 // game config
 let config = {
